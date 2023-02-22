@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/core/route/router.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import '../../../../../core/di/di.dart';
+import '../../../../../di/di.dart';
 import '../../../../../core/ui/src/ui_manager/ui_manager.dart';
 import '../../controllers/profile/profile_controller.dart';
 

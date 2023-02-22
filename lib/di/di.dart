@@ -10,5 +10,8 @@ final getIt = GetIt.instance;
   asExtension: false,
 )
 Future<void> configureDependencies() async {
-  await $initGetIt(getIt);
+  await $initGetIt(
+    getIt,
+    environment: prod.name,
+  );
 }

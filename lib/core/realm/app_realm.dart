@@ -5,9 +5,9 @@ import 'package:realm/realm.dart';
 import '../../features/home/data/home/model/task_dao.dart';
 import './core_realm.dart';
 
+@prod
 @singleton
 class AppRealm extends CoreRealm with CoreRealmImpl {
-  AppRealm() : super();
   @override
   Configuration get config => Configuration.local(
         [

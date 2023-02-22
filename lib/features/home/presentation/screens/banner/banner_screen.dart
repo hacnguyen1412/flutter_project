@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../../core/di/di.dart';
-import '../../../../../core/route/router.dart';
-import '../../controllers/banner/banner_controller.dart';
+import 'package:flutter_project/core/route/router.dart';
+import 'package:flutter_project/di/di.dart';
+import 'package:flutter_project/features/home/presentation/controllers/banner/banner_controller.dart';
 
 class BannerScreen extends StatefulWidget {
   const BannerScreen({

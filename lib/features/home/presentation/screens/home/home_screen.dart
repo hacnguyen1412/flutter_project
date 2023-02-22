@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../../core/di/di.dart';
+import '../../../../../di/di.dart';
 import '../../../../../core/route/router.dart';
 import '../../controllers/home/home_controller.dart';
 

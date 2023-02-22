@@ -4,7 +4,7 @@ import 'package:flutter_project/core/ui/src/localization/localization.dart';
 import 'package:flutter_project/core/ui/src/ui_manager/ui_manager.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
-import '../../../../../core/di/di.dart';
+import '../../../../../di/di.dart';
 import '../../../../../core/ui/gen/assets.gen.dart';
 import '../../../../../core/ui/src/localization/locale_type.dart';
 import '../../../../../core/ui/src/svg_view/svg_view.dart';

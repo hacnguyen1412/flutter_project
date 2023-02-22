@@ -20,7 +20,7 @@ class UIConfiguration {
   });
 
   static const localeKey = 'locale_cache_key';
-  static const themeKey = AdaptiveTheme.prefKey;
+  static const themeKey = 'adaptive_theme_preferences';
   static const modeKey = 'theme_mode';
 
   static Future<UIConfiguration> getInstance({SharedPreferences? prefs}) async {

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/core/route/router.dart';
-import 'core/di/di.dart';
-import 'core/ui/src/localization/localization.dart';
-import 'core/ui/src/ui_manager/ui_manager.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_project/core/ui/core_ui.dart';
+import 'di/di.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,5 +46,10 @@ class _MainAppState extends State<MainApp> {
       },
       configuration: uiConfiguration,
     );
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
   }
 }

@@ -8,5 +8,14 @@ class LightTheme extends AppTheme {
   LightTheme._internal();
 
   @override
-  final Color textPrimary = Colors.grey;
+  final Color textPrimary = Colors.black;
+
+  @override
+  final Color backgroundPrimary = Colors.white;
+
+  @override
+  final Color backgroundSecondary = Colors.grey.shade300;
+
+  @override
+  final Color backgroundTextField = Colors.grey.shade200;
 }

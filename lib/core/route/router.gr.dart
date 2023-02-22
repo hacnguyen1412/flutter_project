@@ -41,6 +41,18 @@ class _$AppRouter extends RootStackRouter {
         child: const ProfileScreen(),
       );
     },
+    MessengerScreenRoute.name: (routeData) {
+      return CupertinoPageX<dynamic>(
+        routeData: routeData,
+        child: const MessengerScreen(),
+      );
+    },
+    RootScreenRoute.name: (routeData) {
+      return CupertinoPageX<dynamic>(
+        routeData: routeData,
+        child: const RootScreen(),
+      );
+    },
     ShippingAddressScreenRoute.name: (routeData) {
       final pathParams = routeData.inheritedPathParams;
       final args = routeData.argsAs<ShippingAddressScreenRouteArgs>(
@@ -60,7 +72,7 @@ class _$AppRouter extends RootStackRouter {
   List<RouteConfig> get routes => [
         RouteConfig(
           TabBarScreenRoute.name,
-          path: '/',
+          path: '/tab-bar-screen',
         ),
         RouteConfig(
           HomeScreenRoute.name,
@@ -75,6 +87,14 @@ class _$AppRouter extends RootStackRouter {
           path: '/profile-screen',
         ),
         RouteConfig(
+          MessengerScreenRoute.name,
+          path: '/',
+        ),
+        RouteConfig(
+          RootScreenRoute.name,
+          path: '/root-screen',
+        ),
+        RouteConfig(
           ShippingAddressScreenRoute.name,
           path: '/shipping_address/:id/detail',
         ),
@@ -87,7 +107,7 @@ class TabBarScreenRoute extends PageRouteInfo<void> {
   const TabBarScreenRoute()
       : super(
           TabBarScreenRoute.name,
-          path: '/',
+          path: '/tab-bar-screen',
         );
 
   static const String name = 'TabBarScreenRoute';
@@ -127,6 +147,30 @@ class ProfileScreenRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileScreenRoute';
+}
+
+/// generated route for
+/// [MessengerScreen]
+class MessengerScreenRoute extends PageRouteInfo<void> {
+  const MessengerScreenRoute()
+      : super(
+          MessengerScreenRoute.name,
+          path: '/',
+        );
+
+  static const String name = 'MessengerScreenRoute';
+}
+
+/// generated route for
+/// [RootScreen]
+class RootScreenRoute extends PageRouteInfo<void> {
+  const RootScreenRoute()
+      : super(
+          RootScreenRoute.name,
+          path: '/root-screen',
+        );
+
+  static const String name = 'RootScreenRoute';
 }
 
 /// generated route for

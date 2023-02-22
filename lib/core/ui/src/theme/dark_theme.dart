@@ -7,5 +7,14 @@ class DarkTheme extends AppTheme {
   DarkTheme._internal();
 
   @override
-  final Color textPrimary = Colors.green;
+  final Color textPrimary = Colors.white;
+
+  @override
+  final Color backgroundPrimary = const Color.fromARGB(255, 53, 53, 65);
+
+  @override
+  final Color backgroundSecondary = const Color.fromARGB(255, 63, 63, 75);
+
+  @override
+  final Color backgroundTextField = const Color.fromARGB(255, 63, 65, 78);
 }

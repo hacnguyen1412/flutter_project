@@ -2,6 +2,8 @@ import 'package:injectable/injectable.dart';
 import '../model/task_dto.dart';
 import 'rest_client.dart';
 
+@test
+@prod
 @singleton
 class HomeRemoteDataSource {
   final TaskRestClient _restClient;
