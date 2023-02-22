@@ -5,7 +5,7 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i21;
+import 'package:dio/dio.dart' as _i22;
 import 'package:event_bus_plus/event_bus_plus.dart' as _i15;
 import 'package:flutter_project/core/auth/data/repository/auth_local_data_source.dart'
     as _i7;
@@ -18,7 +18,7 @@ import 'package:flutter_project/core/auth/data/repository/auto_repository_impl.d
 import 'package:flutter_project/core/auth/domain/repository/auth_repository.dart'
     as _i9;
 import 'package:flutter_project/core/auth/domain/use_case/auth_use_case.dart'
-    as _i20;
+    as _i21;
 import 'package:flutter_project/core/auth/domain/use_case/cache_auth_use_case.dart'
     as _i13;
 import 'package:flutter_project/core/auth/domain/use_case/check_auth_use_case.dart'
@@ -29,51 +29,53 @@ import 'package:flutter_project/core/common/app_directory.dart' as _i3;
 import 'package:flutter_project/core/common/app_size.dart' as _i6;
 import 'package:flutter_project/core/realm/app_realm.dart' as _i4;
 import 'package:flutter_project/core/route/router.dart' as _i5;
-import 'package:flutter_project/core/ui/src/ui_manager/ui_manager.dart' as _i19;
+import 'package:flutter_project/core/ui/src/ui_manager/ui_manager.dart' as _i20;
 import 'package:flutter_project/features/home/data/home/repository/home_repository_impl.dart'
-    as _i26;
+    as _i27;
 import 'package:flutter_project/features/home/data/home/repository/local_data_source.dart'
     as _i17;
 import 'package:flutter_project/features/home/data/home/repository/remote_data_source.dart'
-    as _i24;
-import 'package:flutter_project/features/home/data/home/repository/rest_client.dart'
-    as _i23;
-import 'package:flutter_project/features/home/domain/repository/home_repository.dart'
     as _i25;
+import 'package:flutter_project/features/home/data/home/repository/rest_client.dart'
+    as _i24;
+import 'package:flutter_project/features/home/domain/repository/home_repository.dart'
+    as _i26;
 import 'package:flutter_project/features/home/domain/use_case/add_task_use_case.dart'
-    as _i29;
+    as _i30;
 import 'package:flutter_project/features/home/domain/use_case/cache_homes_use_case.dart'
-    as _i31;
+    as _i32;
 import 'package:flutter_project/features/home/domain/use_case/fetch_home_use_case.dart'
-    as _i33;
+    as _i34;
 import 'package:flutter_project/features/home/domain/use_case/get_homes_cached_use_case.dart'
-    as _i35;
+    as _i36;
 import 'package:flutter_project/features/home/presentation/controllers/banner/banner_controller.dart'
     as _i12;
 import 'package:flutter_project/features/home/presentation/controllers/home/home_controller.dart'
-    as _i36;
-import 'package:flutter_project/features/profile/data/shipping_address/repository_impl/shipping_address_repository_impl.dart'
-    as _i28;
-import 'package:flutter_project/features/profile/data/shipping_address/repository_impl/shipping_address_rest_client.dart'
-    as _i22;
-import 'package:flutter_project/features/profile/domain/repository/shipping_address_repository.dart'
-    as _i27;
-import 'package:flutter_project/features/profile/domain/use_case/shipping_address/cache_shipping_address_use_case.dart'
-    as _i30;
-import 'package:flutter_project/features/profile/domain/use_case/shipping_address/fetch_shipping_address_use_case.dart'
-    as _i32;
-import 'package:flutter_project/features/profile/domain/use_case/shipping_address/get_shipping_address_cached_use_case.dart'
-    as _i34;
-import 'package:flutter_project/features/profile/presentation/controllers/profile/profile_controller.dart'
     as _i37;
-import 'package:flutter_project/features/profile/presentation/controllers/shipping_address/shipping_address_controller.dart'
+import 'package:flutter_project/features/messenger/presentation/controllers/messenger_controller.dart'
+    as _i18;
+import 'package:flutter_project/features/profile/data/shipping_address/repository_impl/shipping_address_repository_impl.dart'
+    as _i29;
+import 'package:flutter_project/features/profile/data/shipping_address/repository_impl/shipping_address_rest_client.dart'
+    as _i23;
+import 'package:flutter_project/features/profile/domain/repository/shipping_address_repository.dart'
+    as _i28;
+import 'package:flutter_project/features/profile/domain/use_case/shipping_address/cache_shipping_address_use_case.dart'
+    as _i31;
+import 'package:flutter_project/features/profile/domain/use_case/shipping_address/fetch_shipping_address_use_case.dart'
+    as _i33;
+import 'package:flutter_project/features/profile/domain/use_case/shipping_address/get_shipping_address_cached_use_case.dart'
+    as _i35;
+import 'package:flutter_project/features/profile/presentation/controllers/profile/profile_controller.dart'
     as _i38;
+import 'package:flutter_project/features/profile/presentation/controllers/shipping_address/shipping_address_controller.dart'
+    as _i39;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:shared_preferences/shared_preferences.dart' as _i18;
+import 'package:shared_preferences/shared_preferences.dart' as _i19;
 
-import 'dio_module.dart' as _i39;
-import 'register_module.dart' as _i40;
+import 'dio_module.dart' as _i40;
+import 'register_module.dart' as _i41;
 
 const String _prod = 'prod';
 const String _test = 'test';
@@ -121,75 +123,76 @@ Future<_i1.GetIt> $initGetIt(
       _i16.GetAuthUseCase(gh<_i9.AuthRepository>()));
   gh.singleton<_i17.HomeLocalDataSource>(
       _i17.HomeLocalDataSource(gh<_i4.AppRealm>()));
-  await gh.factoryAsync<_i18.SharedPreferences>(
+  gh.factory<_i18.MessengerController>(() => _i18.MessengerControllerImpl());
+  await gh.factoryAsync<_i19.SharedPreferences>(
     () => registerModule.prefs,
     preResolve: true,
   );
-  await gh.lazySingletonAsync<_i19.UIConfiguration>(
-    () => registerModule.uiConfiguration(gh<_i18.SharedPreferences>()),
+  await gh.lazySingletonAsync<_i20.UIConfiguration>(
+    () => registerModule.uiConfiguration(gh<_i19.SharedPreferences>()),
     preResolve: true,
   );
   gh.factory<bool>(
     () => dIOModule.enableLog,
     instanceName: 'enableLog',
   );
-  gh.singleton<_i20.AuthUseCase>(_i20.AuthUseCase(
+  gh.singleton<_i21.AuthUseCase>(_i21.AuthUseCase(
     cacheAuth: gh<_i13.CacheAuthUserCase>(),
     checkAuth: gh<_i14.CheckAuthUseCase>(),
     getAuth: gh<_i16.GetAuthUseCase>(),
   ));
-  gh.lazySingleton<_i21.Dio>(
+  gh.lazySingleton<_i22.Dio>(
       () => dIOModule.dio(enableLog: gh<bool>(instanceName: 'enableLog')));
-  gh.singleton<_i22.ShippingAddressRestClient>(
-      _i22.ShippingAddressRestClient(gh<_i21.Dio>()));
-  gh.singleton<_i23.TaskRestClient>(_i23.TaskRestClient(gh<_i21.Dio>()));
-  gh.singleton<_i24.HomeRemoteDataSource>(
-    _i24.HomeRemoteDataSource(gh<_i23.TaskRestClient>()),
+  gh.singleton<_i23.ShippingAddressRestClient>(
+      _i23.ShippingAddressRestClient(gh<_i22.Dio>()));
+  gh.singleton<_i24.TaskRestClient>(_i24.TaskRestClient(gh<_i22.Dio>()));
+  gh.singleton<_i25.HomeRemoteDataSource>(
+    _i25.HomeRemoteDataSource(gh<_i24.TaskRestClient>()),
     registerFor: {
       _test,
       _prod,
     },
   );
-  gh.singleton<_i25.HomeRepository>(_i26.HomeRepositoryImpl(
-    gh<_i24.HomeRemoteDataSource>(),
+  gh.singleton<_i26.HomeRepository>(_i27.HomeRepositoryImpl(
+    gh<_i25.HomeRemoteDataSource>(),
     gh<_i17.HomeLocalDataSource>(),
   ));
-  gh.singleton<_i27.ShippingAddressRepository>(
-      _i28.ShippingAddressRepositoryImpl(
-    gh<_i22.ShippingAddressRestClient>(),
+  gh.singleton<_i28.ShippingAddressRepository>(
+      _i29.ShippingAddressRepositoryImpl(
+    gh<_i23.ShippingAddressRestClient>(),
     gh<_i4.AppRealm>(),
   ));
-  gh.singleton<_i29.AddTasksUseCase>(
-      _i29.AddTasksUseCase(gh<_i25.HomeRepository>()));
-  gh.singleton<_i30.CacheShippingAddressesUseCase>(
-      _i30.CacheShippingAddressesUseCase(gh<_i27.ShippingAddressRepository>()));
-  gh.singleton<_i31.CacheTasksUseCase>(
-      _i31.CacheTasksUseCase(gh<_i25.HomeRepository>()));
-  gh.singleton<_i32.FetchShippingAddressesUseCase>(
-      _i32.FetchShippingAddressesUseCase(gh<_i27.ShippingAddressRepository>()));
-  gh.singleton<_i33.FetchTasksUseCase>(
-      _i33.FetchTasksUseCase(gh<_i25.HomeRepository>()));
-  gh.singleton<_i34.GetShippingAddressCachedUseCase>(
-      _i34.GetShippingAddressCachedUseCase(
-          gh<_i27.ShippingAddressRepository>()));
-  gh.singleton<_i35.GetTasksCachedUseCase>(
-      _i35.GetTasksCachedUseCase(gh<_i25.HomeRepository>()));
-  gh.factory<_i36.HomeController>(() => _i36.HomeControllerImpl(
-        gh<_i31.CacheTasksUseCase>(),
-        gh<_i33.FetchTasksUseCase>(),
-        gh<_i35.GetTasksCachedUseCase>(),
-        gh<_i29.AddTasksUseCase>(),
+  gh.singleton<_i30.AddTasksUseCase>(
+      _i30.AddTasksUseCase(gh<_i26.HomeRepository>()));
+  gh.singleton<_i31.CacheShippingAddressesUseCase>(
+      _i31.CacheShippingAddressesUseCase(gh<_i28.ShippingAddressRepository>()));
+  gh.singleton<_i32.CacheTasksUseCase>(
+      _i32.CacheTasksUseCase(gh<_i26.HomeRepository>()));
+  gh.singleton<_i33.FetchShippingAddressesUseCase>(
+      _i33.FetchShippingAddressesUseCase(gh<_i28.ShippingAddressRepository>()));
+  gh.singleton<_i34.FetchTasksUseCase>(
+      _i34.FetchTasksUseCase(gh<_i26.HomeRepository>()));
+  gh.singleton<_i35.GetShippingAddressCachedUseCase>(
+      _i35.GetShippingAddressCachedUseCase(
+          gh<_i28.ShippingAddressRepository>()));
+  gh.singleton<_i36.GetTasksCachedUseCase>(
+      _i36.GetTasksCachedUseCase(gh<_i26.HomeRepository>()));
+  gh.factory<_i37.HomeController>(() => _i37.HomeControllerImpl(
+        gh<_i32.CacheTasksUseCase>(),
+        gh<_i34.FetchTasksUseCase>(),
+        gh<_i36.GetTasksCachedUseCase>(),
+        gh<_i30.AddTasksUseCase>(),
       ));
-  gh.factory<_i37.ProfileController>(() => _i37.ProfileControllerImpl(
-        gh<_i32.FetchShippingAddressesUseCase>(),
-        gh<_i30.CacheShippingAddressesUseCase>(),
+  gh.factory<_i38.ProfileController>(() => _i38.ProfileControllerImpl(
+        gh<_i33.FetchShippingAddressesUseCase>(),
+        gh<_i31.CacheShippingAddressesUseCase>(),
       ));
-  gh.factory<_i38.ShippingAddressController>(() =>
-      _i38.ShippingAddressControllerImpl(
-          gh<_i34.GetShippingAddressCachedUseCase>()));
+  gh.factory<_i39.ShippingAddressController>(() =>
+      _i39.ShippingAddressControllerImpl(
+          gh<_i35.GetShippingAddressCachedUseCase>()));
   return getIt;
 }
 
-class _$DIOModule extends _i39.DIOModule {}
+class _$DIOModule extends _i40.DIOModule {}
 
-class _$RegisterModule extends _i40.RegisterModule {}
+class _$RegisterModule extends _i41.RegisterModule {}

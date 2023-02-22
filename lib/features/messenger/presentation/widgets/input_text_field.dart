@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/core/ui/core_ui.dart';
 import 'package:flutter_project/core/ui/src/ui_manager/ui_manager.dart';
+import 'package:flutter_project/features/messenger/presentation/controllers/input_behavior.dart';
 
 class InputTextField extends StatefulWidget {
+  final InputBehavior inputBehavior;
   const InputTextField({
     super.key,
+    required this.inputBehavior,
   });
 
   @override
@@ -18,6 +22,8 @@ class _InputTextFieldState extends State<InputTextField> {
     ),
   );
 
+  final textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,6 +37,7 @@ class _InputTextFieldState extends State<InputTextField> {
           Padding(
             padding: const EdgeInsets.all(10),
             child: TextField(
+              controller: textEditingController,
               maxLines: 3,
               minLines: 1,
               decoration: InputDecoration(
@@ -46,7 +53,8 @@ class _InputTextFieldState extends State<InputTextField> {
                 ),
                 suffixIcon: GestureDetector(
                   onTap: () {
-                    print("asd");
+                    widget.inputBehavior.send(textEditingController.text);
+                    textEditingController.clear();
                   },
                   child: Container(
                     color: Colors.transparent,

@@ -23,7 +23,7 @@ class MainDrawerView extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('Item 2'),
+            title: const Text('Change language'),
             onTap: () {
               Navigator.pop(context);
             },
